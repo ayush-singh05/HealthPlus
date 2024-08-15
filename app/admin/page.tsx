@@ -13,7 +13,7 @@ import React from 'react'
 
 const Admin = async () => {
     const appointments = await getRecentAppointmentList()
-    console.log(appointments);
+    // console.log(appointments);
     
     
   return (
@@ -58,7 +58,7 @@ const Admin = async () => {
                 />
 
             </section>
-           <DataTable columns={columns} data={appointments.documents} />
+           <DataTable columns={columns} data={appointments?.documents} />
         </main>
     </div>
   )
