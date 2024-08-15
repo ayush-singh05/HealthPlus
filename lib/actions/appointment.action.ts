@@ -41,26 +41,26 @@ export const getRecentAppointmentList = async () => {
 
     const scheduledAppointments = (
       appointments.documents as Appointment[]
-    ).filter((appointment) => appointment.status === "scheduled");
+    ).filter((appointment) => appointment?.status === "scheduled");
     // console.log(scheduledAppointments);
     
     const pendingAppointments = (
       appointments.documents as Appointment[]
-    ).filter((appointment) => appointment.status === "pending");
+    ).filter((appointment) => appointment?.status === "pending");
 
     // console.log(pendingAppointments);
     
     const cancelledAppointments = (
       appointments.documents as Appointment[]
-    ).filter((appointment) => appointment.status === "cancelled");
+    ).filter((appointment) => appointment?.status === "cancelled");
     // console.log(cancelledAppointments);
     
     const data = {
-      totalCount: appointments.total,
-      scheduledCount: scheduledAppointments.length,
-      pendingCount: pendingAppointments.length,
-      cancelledCount: cancelledAppointments.length,
-      documents: appointments.documents,
+      totalCount: appointments?.total,
+      scheduledCount: scheduledAppointments?.length,
+      pendingCount: pendingAppointments?.length,
+      cancelledCount: cancelledAppointments?.length,
+      documents: appointments?.documents,
     };
     // console.log(data);
     
@@ -69,7 +69,7 @@ export const getRecentAppointmentList = async () => {
       pendingCount: 0,
       cancelledCount: 0,
     };
-    console.log("appointnent -> ", appointments.documents);
+    console.log("appointnent -> ", appointments?.documents);
     
     // const counts = (appointments.documents as Appointment[]).reduce(
     //   (acc, appointment) => {
